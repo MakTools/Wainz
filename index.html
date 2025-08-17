@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wainz Gaming Hub</title>
+<link rel="icon" href="https://img.itch.zone/aW1nLzIyNzU2ODA0LmpwZw==/100x100%23/pv0ZgX.jpg" type="image/png">
+<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+/* ---------- Global ---------- */
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Pixelify Sans', sans-serif; scroll-behavior: smooth; }
+body { background:#0f0f0f; color:#fff; text-align:center; overflow-x:hidden; cursor:none; }
+a { text-decoration:none; color:inherit; }
+
+/* ---------- Navigation ---------- */
+nav {
+    position: fixed; top: 20px; right: 20px;
+    background: rgba(15,15,15,0.8); padding:10px 20px; border-radius:15px;
+    box-shadow: 0 0 15px #ff00ff,0 0 30px #00ffff; z-index:999;
+}
+nav a { color:#fff; margin:0 10px; font-weight:bold; transition:0.3s; }
+nav a:hover { color:#ff00ff; transform:scale(1.1); }
+
+/* ---------- Sections ---------- */
+section { padding:80px 20px; min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; transition:all 0.6s ease; position:relative; }
+section:nth-child(even) { background:#111; }
+.fade-in { opacity:0; transform:translateY(50px); transition:opacity 1s ease, transform 1s ease; }
+.fade-in.visible { opacity:1; transform:translateY(0); }
+
+/* ---------- Glitch Headings ---------- */
+h1.glitch {
+    font-size:4rem; text-transform:uppercase; letter-spacing:5px; position:relative; display:inline-block;
+}
+h1.glitch::before, h1.glitch::after {
+    content: attr(data-text); position:absolute; top:0; left:0; color:#ff00ff; z-index:-1;
+    animation: glitch 1s infinite;
+}
+h1.glitch::after { left:2px; text-shadow:2px 0 red; }
+@keyframes glitch {
+    0%,20%,40%,60%,80%,100%{clip:rect(12px,9999px,77px,0);transform:skew(0.45deg);}
+    10%,30%,50%,70%,90%{clip:rect(85px,9999px,98px,0);transform:skew(0.44deg);}
+}
+
+/* ---------- Buttons ---------- */
+.itch-button {
+    display:inline-block; margin:40px 0; padding:15px 50px; font-size:1.5rem; font-weight:bold;
+    text-decoration:none; color:#fff; background:linear-gradient(90deg,#ff00ff,#00ffff,#ff00ff);
+    border-radius:10px; box-shadow:0 0 15px #ff00ff,0 0 30px #00ffff; transition:0.3s;
+}
+.itch-button:hover { transform:scale(1.05); box-shadow:0 0 25px #ff00ff,0 0 50px #00ffff; }
+
+/* ---------- Cards ---------- */
+.contact-card { background:#111; padding:40px; border-radius:15px; box-shadow:0 0 20px #ff00ff,0 0 40px #00ffff; max-width:500px; margin:auto; transition: transform 0.3s; }
+.contact-card:hover { transform:scale(1.05); }
+.contact-card h2 { margin-bottom:20px; font-size:2rem; color:#ff00ff; }
+.contact-card p { font-size:1.2rem; margin:10px 0; color:#fff; }
+
+/* ---------- Games Embed ---------- */
+.games-embed { width:90%; height:600px; border:4px solid #ff00ff; border-radius:15px; box-shadow:0 0 20px #ff00ff,0 0 40px #00ffff; transition: transform 0.4s ease; }
+.games-embed:hover { transform:scale(1.02); }
+
+/* ---------- Socials ---------- */
+.socials { display:flex; gap:40px; justify-content:center; margin-top:30px; }
+.socials a { font-size:2rem; transition:0.3s; }
+.socials a:hover { transform:scale(1.1); }
+
+/* ---------- Back-to-Top ---------- */
+#topBtn { position:fixed; bottom:30px; right:30px; padding:15px 20px; font-size:1.2rem; background:#ff00ff; color:#fff; border:none; border-radius:10px; cursor:pointer; box-shadow:0 0 15px #ff00ff,0 0 30px #00ffff; transition:0.3s; display:none; z-index:999; }
+#topBtn:hover { transform:scale(1.1); }
+
+/* ---------- Background Grid ---------- */
+body::before { content:""; position:fixed; top:0; left:0; width:100%; height:100%;
+    background: repeating-linear-gradient(0deg, rgba(255,255,255,0.05), rgba(255,255,255,0.05) 1px, transparent 1px, transparent 20px),
+                repeating-linear-gradient(90deg, rgba(255,255,255,0.05), rgba(255,255,255,0.05) 1px, transparent 1px, transparent 20px);
+    z-index:0;
+}
+
+/* ---------- Custom Cursor Particles ---------- */
+.particle { position:absolute; width:10px; height:10px; border-radius:50%; pointer-events:none; mix-blend-mode:screen; z-index:10000; }
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+    <a href="#home">Home</a>
+    <a href="#games">Games</a>
+    <a href="#social">Socials</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<!-- Home Section -->
+<section id="home" class="fade-in">
+    <h1 class="glitch" data-text="Wainz">Wainz</h1>
+    <p>Welcome to my gaming hub. Let's level up!</p>
+    <a class="itch-button" href="https://wainz.itch.io" target="_blank">Visit my Itch.io</a>
+</section>
+
+<!-- Games Section -->
+<section id="games" class="fade-in">
+    <h1 class="glitch" data-text="Games">Games</h1>
+    <iframe class="games-embed" src="https://html5games.com/" frameborder="0"></iframe>
+</section>
+
+<!-- Socials Section -->
+<section id="social" class="fade-in">
+    <h1 class="glitch" data-text="Socials">Socials</h1>
+    <div class="socials">
+        <a href="https://www.youtube.com/@Makcolas" target="_blank" style="color:#ff0000;"><i class="fab fa-youtube"></i> YouTube</a>
+        <a href="https://discord.gg/T6WKaU48xu" target="_blank" style="color:#7289da;"><i class="fab fa-discord"></i> Discord</a>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="fade-in">
+    <h1 class="glitch" data-text="Contact Me">Contact Me</h1>
+    <div class="contact-card">
+        <h2>Get in Touch!</h2>
+        <p>Phone: <a href="tel:5043234563" style="color:#00ffff;">504 323 4563</a></p>
+        <p>Email: <a href="mailto:melonsidedown@gmail.com" style="color:#00ffff;">melonsidedown@gmail.com</a></p>
+    </div>
+</section>
+
+<!-- Back-to-Top Button -->
+<button id="topBtn" onclick="topFunction()">Top</button>
+
+<!-- Particle Container -->
+<div id="particles"></div>
+
+    <iframe frameborder="0" src="https://itch.io/embed/3817931?linkback=true&amp;border_width=5&amp;bg_color=1353ac&amp;fg_color=fff&amp;link_color=4571f3&amp;border_color=318bff" width="560" height="175"><a href="https://wainz.itch.io/bloxxynim">BloxxyNim by wainz</a></iframe>
+ 
+<script>
+// Scroll Fade-In Animation
+const faders = document.querySelectorAll('.fade-in');
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('visible'); });
+}, { threshold:0.3 });
+faders.forEach(fader => observer.observe(fader));
+
+// Back-to-Top Button
+const topBtn = document.getElementById("topBtn");
+window.onscroll = () => { topBtn.style.display = (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) ? "block" : "none"; }
+function topFunction() { window.scrollTo({top:0, behavior:"smooth"}); }
+
+// ---------- Particle Cursor ----------
+document.body.addEventListener('mousemove', function(e){
+    const particle = document.createElement('div');
+    particle.classList.add('particle');
+    particle.style.left = e.pageX + 'px';
+    particle.style.top = e.pageY + 'px';
+    particle.style.background = `hsl(${Math.random()*360}, 100%, 50%)`;
+    particle.style.width = particle.style.height = Math.random()*8 + 4 + 'px';
+    document.body.appendChild(particle);
+    setTimeout(() => { particle.remove(); }, 1000);
+});
+
+// ---------- Hover Sound Effects ----------
+const hoverSound = new Audio('https://www.soundjay.com/buttons/sounds/button-16.mp3');
+document.querySelectorAll('a, .itch-button, .contact-card').forEach(el=>{
+    el.addEventListener('mouseenter', ()=>{ hoverSound.currentTime=0; hoverSound.play(); });
+});
+    
+</script>
+
+</body>
+</html>
